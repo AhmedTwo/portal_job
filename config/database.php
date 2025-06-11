@@ -2,7 +2,7 @@
 
 $dsn = "mysql:host=localhost;dbname=job_portal;charset=utf8";
 $username = "root";
-$password = "";
+$password = ""; // pad de mdp
 
 try {
     // tente si ca marche

@@ -7,6 +7,7 @@ require_once '../../config/database.php';
 require_once '../partials/header.html.php';
 require_once 'C:\wamp64\www\portal_job\model\Profil.php';
 
+
 if (isset($_SESSION['new_id'])) {
     $newProfil = new Profil();
     $newProfil->readProfil($pdo, $_SESSION['new_id']);
@@ -22,7 +23,7 @@ if (isset($_SESSION['new_id'])) {
 }
 ?>
 
-    <link rel="stylesheet" href="/portal_job/css/profil.css">
+<link rel="stylesheet" href="/portal_job/css/profil.css">
 
 
 <?php if ($profilData): ?>
@@ -44,3 +45,8 @@ if (isset($_SESSION['new_id'])) {
 <?php else: ?>
     <p style="text-align: center;">Vous devez être connecté pour voir votre profil.</p>
 <?php endif; ?>
+
+<br><br><br>
+<?php
+require_once '../partials/footer.html.php';
+?>

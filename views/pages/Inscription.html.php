@@ -68,7 +68,7 @@ require_once '../partials/header.html1.php';
         <div class="col-12">
             <div class="mb-3">
                 <label for="inputPhoto" class="form-label">Importer votre photo de profil :</label>
-                <input type="file" class="form-control" name="inputPhoto" id="inputPhoto" accept=".pdf,.doc,.docx">
+                <input type="file" class="form-control" name="inputPhoto" id="inputPhoto" accept=".pdf,.doc,.docx" required>
                 <br>
                 <label for="lettre" class="form-label"> Importer votre CV :</label>
                 <input type="file" class="form-control" name="inputCv" id="inputCv" accept=".pdf,.doc,.docx" required>

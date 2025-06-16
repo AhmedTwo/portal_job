@@ -13,9 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         !empty($_POST["inputZipcode"]) &&
         !empty($_POST["inputQualification"]) &&
         !empty($_POST["inputPreference"]) &&
-        !empty($_POST["choix"]) &&
-        !empty($_FILES["inputCv"]["name"]) &&
-        !empty($_FILES["inputPhoto"]["name"])
+        isset($_POST["choix"]) &&
+        isset($_FILES["inputCv"]) && $_FILES["inputCv"]["error"] === UPLOAD_ERR_OK &&
+        isset($_FILES["inputPhoto"]) && $_FILES["inputPhoto"]["error"] === UPLOAD_ERR_OK
 
     ) {
 
@@ -55,24 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             (int) $_POST["choix"],
             $photo
         );
+    
 
-        try {
-            $id = $newUser->addUsers($pdo);
-            if ($id) {
-                header("Location:../index.php");
-                exit();
-            } else {
-                echo "Échec de l'ajout en base.";
-            }
-        } catch (PDOException $e) {
-            if ($e->getCode() == 23000) {
-                echo "Erreur : cet email est déjà enregistré.";
-            } else {
-                echo "Erreur d'insertion : " . $e->getMessage();
-            }
-            
-            // Attendre 2 secondes puis rediriger
-            header("refresh:2;url=../views/pages/Inscription.html.php");
-        }
-    }        
+        $newUser->addUsers($pdo);
+        
+        header("Location:../index.php");
+        exit();
+    }
 }

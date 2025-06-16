@@ -7,7 +7,15 @@ require __DIR__ . '/../vendor/autoload.php'; // Chemin vers ton autoloader Compo
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
     $message = "
+    Bonjour,
+
+    Votre demande d'ajout de compagnie,
+    Venant de l'entreprise suivante : {$_POST['inputNom']}
+
+    A bien été reçue. Voici un récapitulatif des informations que vous avez transmises :
+
         NOM : {$_POST['inputNom']}\n
         NOMBRE EMPLOYES : {$_POST['inputNbEmploye']}\n
         DOMAINE : {$_POST['inputDomaine']}\n
@@ -18,6 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         EMAIL : {$_POST['inputEmail']}\n
         N_SIRET : {$_POST['inputSiret']}\n
         LOGO : {$_POST['inputLogo']}
+
+    Notre équipe étudiera attentivement votre dossier et vous contactera si votre compagnie correspond aux critères.
+    
+    Cordialement,
+    L'équipe Recrutement
     ";
 
     $mail = new PHPMailer(true);

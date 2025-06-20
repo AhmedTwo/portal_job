@@ -4,8 +4,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Chemins corrects avec __DIR__ pour éviter les problèmes de chemins relatifs
-require_once __DIR__ . '/../config/database.php';
-require __DIR__ . '/../vendor/autoload.php';
+require_once dirname(__DIR__) . '/config/database.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 if (!isset($_GET['id'])) {
     die("Offre introuvable !");
@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $updateStmt->execute(['id' => $id]);
 
         echo "<div class='alert alert-success text-center'>Votre candidature a été envoyée avec succès!</div>";
-        echo '<meta http-equiv="refresh" content="2;url=/portal_job/views/pages/NosOffres.php">';
+        echo '<meta http-equiv="refresh" content="2;url=/salah%20projet/views/pages/NosOffres.php">';
     } catch (Exception $e) {
         echo "<div class='alert alert-danger text-center'>Erreur : {$mail->ErrorInfo}</div>";
     }

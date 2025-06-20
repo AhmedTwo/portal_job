@@ -7,7 +7,6 @@ de générer un identifiant qui sera un mail qui devra se terminer par "@company
 <?php
 session_start();
 require_once '../partials/header.html1.php';
-require_once '../../includes/traitement_formulaire.php';
 ?>
 
 <div class="container">
